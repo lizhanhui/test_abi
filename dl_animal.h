@@ -2,13 +2,29 @@
 #define DL_ANIMAL_H
 
 #include <dlfcn.h>
+
+#include <string>
+
 #include "animal.h"
+
 
 typedef animal* (*Fn)();
 void* handle = NULL;
 
 void load_library() {
-    handle = dlopen("libanimal.dylib", RTLD_LAZY);
+#ifdef __APPLE__
+    std::string extension = ".dylib";
+#endif
+
+#ifdef __linux__
+    std::string extension = ".so";
+#endif
+
+    std::string lib_name("libanimal");
+
+    lib_name.append(extension);
+
+    handle = dlopen(lib_name.c_str(), RTLD_LAZY);
 }
 
 animal* dl_lookup() {
