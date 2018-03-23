@@ -13,6 +13,8 @@ add_library(animal SHARED animal.cpp)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
+target_link_libraries(${PROJECT_NAME} dl)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES
     LINK_FLAGS "-Wl,-rpath,\$ORIGIN")
 
