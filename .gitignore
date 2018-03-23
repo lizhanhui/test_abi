@@ -2,3 +2,4 @@ build
 bak
 CMakeLists.txt.user
 *autosave
+cmake-build-debug
