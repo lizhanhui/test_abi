@@ -9,6 +9,11 @@ endif ()
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
+if(TALK)
+    add_definitions("-DTALK")
+    message("TALK is enabled")
+endif()
+
 add_library(animal SHARED animal.cpp)
 
 add_executable(${PROJECT_NAME} main.cpp)

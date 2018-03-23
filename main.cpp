@@ -6,6 +6,11 @@ using namespace std;
 int main()
 {
     cout << "Hello World!" << endl;
+
+#ifdef TALK
+    cout << "TALK is enabled" << endl;
+#endif
+
     load_library();
     animal* instance = dl_lookup();
     instance->eat();
